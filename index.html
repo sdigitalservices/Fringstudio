@@ -137,8 +137,8 @@ img {
       <span class="font-headline font-bold text-lg sm:text-xl tracking-tight uppercase">Fringe Studio</span>
     </div>
 
-    <!-- Navigation container (collapsible via hamburger on mobile/landscape, inline flex row) -->
-    <nav id="nav-menu" class="hidden lg:flex items-center gap-4 lg:gap-6 ml-6 absolute lg:static top-20 left-0 w-full lg:w-auto bg-surface lg:bg-transparent border-b-2 lg:border-none border-outline p-4 lg:p-0 flex-row flex-wrap items-center justify-start lg:justify-end shadow-lg lg:shadow-none transition-all duration-300">
+    <!-- Centered Navigation Container -->
+    <nav id="nav-menu" class="hidden md:flex items-center justify-center gap-4 lg:gap-6 absolute md:static top-20 left-0 w-full md:w-auto bg-surface md:bg-transparent border-b-2 md:border-none border-outline p-6 md:p-0 flex-col md:flex-row shadow-lg md:shadow-none transition-all duration-300 z-40">
       <a aria-current="page" class="text-xs sm:text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-colors font-bold uppercase tracking-wider px-2 sm:px-3 py-1 focus:ring-2 focus:ring-primary" data-path="home" href="#">Home</a>
       <a class="text-xs sm:text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider hover:scale-105 transform focus:ring-2 focus:ring-primary px-2 sm:px-0 py-1" data-path="services" href="#services">Services</a>
       <a class="text-xs sm:text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider hover:scale-105 transform focus:ring-2 focus:ring-primary px-2 sm:px-0 py-1" data-path="why-us" href="#why-us">Why Us</a>
@@ -149,10 +149,10 @@ img {
       <a class="text-xs sm:text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider hover:scale-105 transform focus:ring-2 focus:ring-primary px-2 sm:px-0 py-1" data-path="contact" href="#contact">Contact</a>
     </nav>
 
-    <!-- Mobile Hamburger Toggle Button -->
+    <!-- Transparent Mobile Hamburger Toggle Button -->
     <div class="flex items-center gap-4">
-      <button id="menu-toggle" class="lg:hidden p-2 text-on-surface focus:ring-2 focus:ring-primary border-2 border-outline bg-primary-container" aria-label="Toggle Navigation">
-        <span class="material-symbols-outlined">menu</span>
+      <button id="menu-toggle" class="md:hidden p-2 text-on-surface bg-transparent border-0 focus:outline-none focus:ring-0 active:bg-transparent hover:bg-transparent shadow-none" aria-label="Toggle Navigation">
+        <span class="material-symbols-outlined text-3xl">menu</span>
       </button>
     </div>
   </div>
@@ -994,7 +994,7 @@ document.addEventListener('keydown', event => {
   }
 });
 
-// Mobile & Landscape Hamburger Menu Toggle for Inline Horizontal Flex Row
+// Mobile & Landscape Hamburger Menu Toggle & Auto-Close on Link Click
 const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 
@@ -1004,10 +1004,10 @@ if (menuToggle && navMenu) {
     navMenu.classList.toggle('flex');
   });
 
-  // Close menu when clicking any navigation link on mobile/landscape view
+  // Close menu when clicking any navigation link on mobile view
   navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth < 768) {
         navMenu.classList.add('hidden');
         navMenu.classList.remove('flex');
       }
